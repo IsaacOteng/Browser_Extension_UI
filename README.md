@@ -70,7 +70,7 @@ Users should be able to:
    * Used event delegation and `stopPropagation` to prevent unwanted event bubbling (e.g., clicking Remove doesn't toggle the switch).
     </p>
 
-<p>Unique Identification</p>
+<h1>Unique Identification</h1>
     <p>Assigned a unique `_uid` to each extension to reliably identify and update/remove the correct card, even after filtering or reordering.</p>
 
 <h1>Filtering and Rendering</h1>
