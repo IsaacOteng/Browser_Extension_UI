@@ -59,48 +59,35 @@ Users should be able to:
 
 Dynamic DOM Manipulation
     <p>Learned how to generate HTML elements (cards) dynamically from a JSON data source using JavaScript.
-    <p>Used `document.createElement`, `classList`, and `innerHTML` to build and update the UI.
-
-
+   *Used `document.createElement`, `classList`, and `innerHTML` to build and update the UI.</p>
 
 State Management
     <p>Managed a global array (`allExtensions`) to store and update the state of all extensions.
-    <p>Implemented a filter state (`currentFilter`) to control which cards are shown (All, Active, Inactive).
-
-
+    * Implemented a filter state (`currentFilter`) to control which cards are shown (All, Active, Inactive).</p>
 
 Event Handling
-    <p>Attached event listeners to dynamically created elements for removing cards and toggling their active/inactive state.
-    <p>Used event delegation and `stopPropagation` to prevent unwanted event bubbling (e.g., clicking Remove doesn't toggle the switch).
-
-
+    Attached event listeners to dynamically created elements for removing cards and toggling their active/inactive state.
+    Used event delegation and `stopPropagation` to prevent unwanted event bubbling (e.g., clicking Remove doesn't toggle the switch).
 
 Unique Identification
-    <p>Assigned a unique `_uid` to each extension to reliably identify and update/remove the correct card, even after filtering or reordering.
-
-
+    Assigned a unique `_uid` to each extension to reliably identify and update/remove the correct card, even after filtering or reordering.
 
 Filtering and Rendering
-    <p>Implemented filtering logic to show only active, inactive, or all extensions based on user selection.
-    <p>Ensured the UI updates correctly after any change (removal, toggle, or filter switch).
-
+    Implemented filtering logic to show only active, inactive, or all extensions based on user selection.
+    Ensured the UI updates correctly after any change (removal, toggle, or filter switch).
 
 
 Accessibility and Usability
-    <p>Used `tabindex` and `type="button"` to improve keyboard navigation and prevent accidental form submissions.
-    <p>Wrapped controls in separate containers to avoid event overlap and improve user experience.
-
-
+    Used `tabindex` and `type="button"` to improve keyboard navigation and prevent accidental form submissions.
+    Wrapped controls in separate containers to avoid event overlap and improve user experience.
 
 Code Organization
-    <p>Broke down logic into clear functions: rendering, event attachment, filtering, and theme management.
-    <p>Used comments and clear variable names for maintainability.
-
-
+    Broke down logic into clear functions: rendering, event attachment, filtering, and theme management.
+    Used comments and clear variable names for maintainability.
 
 Debugging and Iteration
      <p>Learned to debug issues with event bubbling, index mismatches, and UI glitches by isolating problems and testing fixes.
-     <p>Improved reliability by using unique IDs and careful event handling.
+    Improved reliability by using unique IDs and careful event handling.
 
 
 Summary:
