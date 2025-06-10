@@ -58,16 +58,16 @@ Users should be able to:
 
 
 <h3>Dynamic DOM Manipulation</h3>
-    <p>Learned how to generate HTML elements (cards) dynamically from a JSON data source using JavaScript.
-   *Used `document.createElement`, `classList`, and `innerHTML` to build and update the UI.</p>
+    <p>Learned how to generate HTML elements (cards) dynamically from a JSON data source using JavaScript.<br>
+   Used `document.createElement`, `classList`, and `innerHTML` to build and update the UI.</p>
 
 <h3>State Management</h3>
     <p>Managed a global array (`allExtensions`) to store and update the state of all extensions.
-    * Implemented a filter state (`currentFilter`) to control which cards are shown (All, Active, Inactive).</p>
+    <br> Implemented a filter state (`currentFilter`) to control which cards are shown (All, Active, Inactive).</p>
 
 <h3>Event Handling</h3>
     <p>Attached event listeners to dynamically created elements for removing cards and toggling their active/inactive state.
-   * Used event delegation and `stopPropagation` to prevent unwanted event bubbling (e.g., clicking Remove doesn't toggle the switch).
+   <br> Used event delegation and `stopPropagation` to prevent unwanted event bubbling (e.g., clicking Remove doesn't toggle the switch).
     </p>
 
 <h3>Unique Identification</h3>
@@ -75,20 +75,20 @@ Users should be able to:
 
 <h3>Filtering and Rendering</h3>
     <p>Implemented filtering logic to show only active, inactive, or all extensions based on user selection.
-    *Ensured the UI updates correctly after any change (removal, toggle, or filter switch).</p>
+    <br>Ensured the UI updates correctly after any change (removal, toggle, or filter switch).</p>
 
 
 <h3>Accessibility and Usability</h3>
     <p>Used `tabindex` and `type="button"` to improve keyboard navigation and prevent accidental form submissions.
-    *Wrapped controls in separate containers to avoid event overlap and improve user experience.</p>
+    <br>Wrapped controls in separate containers to avoid event overlap and improve user experience.</p>
 
 <h3>Code Organization</h3>
     <p>Broke down logic into clear functions: rendering, event attachment, filtering, and theme management.
-    *Used comments and clear variable names for maintainability.</p>
+    <br>Used comments and clear variable names for maintainability.</p>
 
 <h3>Debugging and Iteration</h3>
      <p>Learned to debug issues with event bubbling, index mismatches, and UI glitches by isolating problems and testing fixes.
-    *Improved reliability by using unique IDs and careful event handling.</p>
+    <br>Improved reliability by using unique IDs and careful event handling.</p>
 
 
 Summary:
