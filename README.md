@@ -31,6 +31,8 @@ Users should be able to:
 ### Screenshot
 
 ![](./assets/images/review.png)
+![](./assets/images/review_light_theme.png)
+![](./assets/images/review_active.png)
 
 
 
