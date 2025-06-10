@@ -13,7 +13,6 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
   - [What I learned](#what-i-learned)
 
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -58,17 +57,3 @@ Users should be able to:
 ### What I learned
 
 
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
