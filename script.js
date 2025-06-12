@@ -10,10 +10,18 @@ let currentFilter = 'all';
 fetch("data.json")
   .then(response => response.json())
   .then(data => {
-    // Assign a unique _uid to each extension if not present
-    allExtensions = data.map((item, idx) => ({ ...item, _uid: item._uid || idx + '_' + Date.now() }));
+    // Assign a unique uniqueid to each extension if not present
+    allExtensions = data.map((item, index) => ({ ...item, uniqueid: item.uniqueid || index + '_' + Date.now() }));
     renderCards(allExtensions);
-  });
+  }
+)
+  .catch(error => {
+    console.error("Error loading data:", error);
+    const cardContainer = document.querySelector(".cards");
+    cardContainer.innerHTML = "<p>Error loading extensions. Please try again later.</p>";
+  }
+) 
+;
 
 function renderCards(data) {
   const cardContainer = document.querySelector(".cards");
@@ -22,7 +30,7 @@ function renderCards(data) {
     const card = document.createElement("div");
     card.classList.add("card");
     card.classList.add(item.isActive ? "active" : "inactive");
-    card.setAttribute('data-index', item._uid);
+    card.setAttribute('data-index', item.uniqueid);
     // Prevent label and remove button from overlapping by wrapping them in separate containers
     card.innerHTML = `
       <div class="card-details">
@@ -34,8 +42,8 @@ function renderCards(data) {
       </div>
       <div class="buttons">
         <span class="remove-wrap"><button class="remove" type="button" tabindex="-1">Remove</button></span>
-        <span class="switch-wrap"><label class="switch-label" for="switch-${item._uid}" tabindex="-1"></label>
-        <input type="checkbox" class="onoff" id="switch-${item._uid}" name="switch" ${item.isActive ? 'checked' : ''} tabindex="0"></span>
+        <span class="switch-wrap"><label class="switch-label" for="switch-${item.uniqueid}" tabindex="-1"></label>
+        <input type="checkbox" class="onoff" id="switch-${item.uniqueid}" name="switch" ${item.isActive ? 'checked' : ''} tabindex="0"></span>
       </div>
     `;
     cardContainer.appendChild(card);
@@ -56,8 +64,8 @@ function attachCardEvents() {
     btn.onclick = function(e) {
       e.stopPropagation(); // Prevent bubbling to label or card
       const card = btn.closest('.card');
-      const uid = card ? card.getAttribute('data-index') : null;
-      const realIdx = allExtensions.findIndex(e => e._uid === uid);
+      const uniqueid = card ? card.getAttribute('data-index') : null;
+      const realIdx = allExtensions.findIndex(e => e.uniqueid === uniqueid);
       if (realIdx > -1) {
         allExtensions.splice(realIdx, 1);
         renderCards(getFilteredExtensions());
@@ -77,8 +85,8 @@ function attachCardEvents() {
     checkbox.onchange = function(e) {
       e.stopPropagation();
       const card = checkbox.closest('.card');
-      const uid = card ? card.getAttribute('data-index') : null;
-      const realIdx = allExtensions.findIndex(e => e._uid === uid);
+      const uniqueid = card ? card.getAttribute('data-index') : null;
+      const realIdx = allExtensions.findIndex(e => e.uniqueid === uniqueid);
       if (realIdx > -1) {
         allExtensions[realIdx].isActive = checkbox.checked;
         renderCards(getFilteredExtensions());
@@ -144,116 +152,3 @@ darkModeToggle.addEventListener('click', () => {
   const isDark = body.classList.contains('dark-mode');
   setTheme(isDark ? 'light' : 'dark');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
