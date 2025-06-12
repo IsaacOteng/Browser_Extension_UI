@@ -1,10 +1,5 @@
-document.querySelector("cards");
-
 // Store loaded data globally for filtering
 let allExtensions = [];
-
-// Track current filter state
-let currentFilter = 'all';
 
 // Dynamically generate cards from data.json
 fetch("data.json")
@@ -52,11 +47,44 @@ function renderCards(data) {
   updateFilterButtonStyles();
 }
 
+// Filter buttons
+const allBtn = document.querySelector('.state-all');
+const activeBtn = document.querySelector('.state-active');
+const inactiveBtn = document.querySelector('.state-Inactive');
+
+// Track current filter state
+let currentFilter = "all";
+
+allBtn.addEventListener('click', () => {
+  currentFilter = 'all';
+  renderCards(allExtensions);
+});
+activeBtn.addEventListener('click', () => {
+  currentFilter = 'active';
+  renderCards(allExtensions.filter(e => e.isActive));
+});
+inactiveBtn.addEventListener('click', () => {
+  currentFilter = 'inactive';
+  renderCards(allExtensions.filter(e => !e.isActive));
+});
+
+
 function getFilteredExtensions() {
   if (currentFilter === 'active') return allExtensions.filter(e => e.isActive);
   if (currentFilter === 'inactive') return allExtensions.filter(e => !e.isActive);
   return allExtensions;
 }
+
+
+function updateFilterButtonStyles() {
+  allBtn.classList.remove('selected', 'active', 'inactive');
+  activeBtn.classList.remove('selected', 'active', 'inactive');
+  inactiveBtn.classList.remove('selected', 'active', 'inactive');
+  if (currentFilter === 'all') allBtn.classList.add('selected');
+  if (currentFilter === 'active') activeBtn.classList.add('selected');
+  if (currentFilter === 'inactive') inactiveBtn.classList.add('selected');
+}
+
 
 function attachCardEvents() {
   // Remove button
@@ -94,33 +122,6 @@ function attachCardEvents() {
     };
   });
 }
-
-// Filter buttons
-const allBtn = document.querySelector('.state-all');
-const activeBtn = document.querySelector('.state-active');
-const inactiveBtn = document.querySelector('.state-Inactive');
-
-function updateFilterButtonStyles() {
-  allBtn.classList.remove('selected', 'active', 'inactive');
-  activeBtn.classList.remove('selected', 'active', 'inactive');
-  inactiveBtn.classList.remove('selected', 'active', 'inactive');
-  if (currentFilter === 'all') allBtn.classList.add('selected');
-  if (currentFilter === 'active') activeBtn.classList.add('selected');
-  if (currentFilter === 'inactive') inactiveBtn.classList.add('selected');
-}
-
-allBtn.addEventListener('click', () => {
-  currentFilter = 'all';
-  renderCards(allExtensions);
-});
-activeBtn.addEventListener('click', () => {
-  currentFilter = 'active';
-  renderCards(allExtensions.filter(e => e.isActive));
-});
-inactiveBtn.addEventListener('click', () => {
-  currentFilter = 'inactive';
-  renderCards(allExtensions.filter(e => !e.isActive));
-});
 
 // Theme toggler logic
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
