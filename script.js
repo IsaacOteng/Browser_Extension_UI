@@ -87,7 +87,7 @@ function updateFilterButtonStyles() {
 
 
 function attachCardEvents() {
-  // Remove button
+  // Remove button  
   document.querySelectorAll('.card .remove').forEach((btn) => {
     btn.onclick = function(e) {
       e.stopPropagation(); // Prevent bubbling to label or card
